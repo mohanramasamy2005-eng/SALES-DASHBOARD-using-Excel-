@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-canvas dark:bg-canvas-dark text-ink dark:text-ink-dark font-sans transition-colors duration-200;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    @apply bg-brand-200 dark:bg-brand-700;
+  }
+  :focus-visible {
+    outline: 2px solid #2e5cf0;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+    @apply font-mono;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border dark:bg-border-dark rounded-full;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-card shadow-card dark:shadow-card-dark;
+  }
+  .btn {
+    @apply inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium transition-colors duration-150 disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-brand-500 text-white hover:bg-brand-600;
+  }
+  .btn-secondary {
+    @apply btn bg-transparent border border-border dark:border-border-dark text-ink dark:text-ink-dark hover:bg-canvas dark:hover:bg-white/5;
+  }
+  .input {
+    @apply bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-md px-3 py-1.5 text-sm text-ink dark:text-ink-dark placeholder:text-muted focus:border-brand-400 transition-colors;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
